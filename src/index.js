@@ -1,24 +1,47 @@
 //renderizando objetos
 
-import React from "react"
+import React, {Component} from "react"
 import ReactDOM from "react-dom"
-import Button from "./button"
 import "./styles.css"
 
-function soma(a,b){
-	alert (a+b);
+
+class App extends Component{
+
+	constructor(props){
+		super(props)
+
+		this.state ={
+			clock: 1000,
+			copo: 'agua'
+		}
+	}
+
+	componentDidMount(){
+		window.setTimeout(() => {
+			this.setState({
+				copo: 'suco'
+			})
+		},3000)
+	}
+
+	alterarCopo = () => {
+		this.setState({
+			copo: 'refrigerante'
+		})
+	}
+
+	render(){
+		const {clock, copo} = this.state
+		return(
+			<div>
+				<h1>{clock}</h1>
+				<button onClick={() => this.alterarCopo()}>{copo}</button>
+			</div>
+		)
+	}
 }
 
 
-const App = () =>{
-
-	return(
-		<div>
-			Hello world!
-			<Button onClick = { () => soma(10,17)} name="Danilo"/>
-		</div>
-	)
-}
 
 const rootElement = document.getElementById("root")
 ReactDOM.render(<App />, rootElement)
