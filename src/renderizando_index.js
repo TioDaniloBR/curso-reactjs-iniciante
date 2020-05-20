@@ -2,20 +2,16 @@
 
 import React from "react"
 import ReactDOM from "react-dom"
-import Button from "./button"
 import "./styles.css"
 
-function soma(a,b){
-	alert (a+b);
-}
+const element = 'Danilo';
+const element2 = <h1>"Olá turma"</h1>;
 
-
-const App = () =>{
-
+function App(){
 	return(
 		<div>
-			Hello world!
-			<Button onClick = { () => soma(10,17)} name="Danilo"/>
+			{element}
+			{element2}
 		</div>
 	)
 }
